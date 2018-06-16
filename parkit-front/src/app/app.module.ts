@@ -23,7 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { AuthInterceptor } from './services/auth.interceptor';
-import { ParkingTableComponent } from './parking-table/parking-table.component';
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
@@ -35,7 +34,6 @@ import { AuthService } from './services/auth.service';
   declarations: [
     AppComponent,
     MainNavComponent,
-    ParkingTableComponent,
     HomeComponent,
     ListComponent,
     SettingsComponent,
