@@ -1,7 +1,6 @@
 export class User {
   id: string;
   name: string;
-  token: string;
   employmentDate: Date;
   phoneNumber: number;
   wantsParking: boolean;

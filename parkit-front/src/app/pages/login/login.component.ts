@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
 
 @Component({
   selector: 'parking-login',
@@ -7,17 +9,20 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
+  username = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
   getErrorMessage() {
-    return this.email.hasError('required')
-      ? 'You must enter a value'
-      : this.email.hasError('email')
-        ? 'Not a valid email'
-        : '';
+    return this.username.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  login() {
+    this.authService
+      .logIn(this.username.value, this.password.value)
+      .subscribe(response => {}, error => {});
   }
 }
