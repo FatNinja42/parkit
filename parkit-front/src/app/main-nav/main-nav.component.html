@@ -9,8 +9,8 @@
         <mat-icon class="nav-icon">view_list</mat-icon>List</a>
       <a mat-list-item routerLink="settings" (click)="setPage('Settings')">
         <mat-icon class="nav-icon">settings</mat-icon>Settings</a>
-      <a mat-list-item (click)="logOut()" (click)="setPage('Home')">
-        <mat-icon class="nav-icon">person_outline</mat-icon>Log out</a>
+      <button class="button-logout" mat-raised-button (click)="logOut();setPage('Home')" color="primary">
+        <mat-icon class="nav-icon">person_outline</mat-icon> Log out </button>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
