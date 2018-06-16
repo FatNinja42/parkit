@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +7,7 @@ import { NotificationService } from './services/notification.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(
-    private authService: AuthService,
-    private notificationService: NotificationService
-  ) {
-    notificationService.makeTee();
-  }
+  constructor(private authService: AuthService) {}
 
   isLoggedIn(): boolean {
     return this.authService.isLoggedIn();

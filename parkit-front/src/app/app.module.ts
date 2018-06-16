@@ -33,7 +33,6 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { StompModule } from '@elderbyte/ngx-stomp';
 import { OptInComponent } from './opt-in/opt-in.component';
-import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -69,16 +68,11 @@ import { NotificationService } from './services/notification.service';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSlideToggleModule,
-    StompModule.forRoot({
-      endpointUrl: 'socket',
-      withSockJs: true
-    })
+    MatSlideToggleModule
   ],
   providers: [
     AuthGuard,
     AuthService,
-    NotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
