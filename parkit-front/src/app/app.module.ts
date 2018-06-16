@@ -13,8 +13,11 @@ import {
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule, MatGridListModule, MatCardModule, MatMenuModule, MatFormFieldModule
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { ParkingTableComponent } from './parking-table/parking-table.component';
 import { AppRoutingModule } from './app.routing';
@@ -22,6 +25,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+<<<<<<< HEAD
+import { LoginUiComponent } from './login-ui/login-ui.component';
+=======
+>>>>>>> 0d2740e9a32fc672ca565e37095c88eacbf31b74
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +39,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
     HomeComponent,
     ListComponent,
     SettingsComponent,
-    LoginComponent
+    LoginComponent,
+    LoginUiComponent
   ],
   imports: [
     BrowserModule,
@@ -48,9 +57,18 @@ import { SettingsComponent } from './pages/settings/settings.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
