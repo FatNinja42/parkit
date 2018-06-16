@@ -26,7 +26,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource = new ListDataSource(this.paginator, this.sort);
-    this.authService.logIn();
   }
 
   hasNoSpot(user: UserListElement) {
