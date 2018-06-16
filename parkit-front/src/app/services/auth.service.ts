@@ -17,7 +17,8 @@ export class AuthService {
     this.token = btoa(username + ':' + password);
     return this.http.get<User>('user').pipe(
       map(response => {
-        this.user = response;
+        this.user = new User(response);
+        console.log(this.user);
         return true;
       })
     );
