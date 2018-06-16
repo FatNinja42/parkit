@@ -10,13 +10,29 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule, MatTableModule, MatPaginatorModule, MatSortModule
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { ParkingTableComponent } from './parking-table/parking-table.component';
+import { AppRoutingModule } from './app.routing';
+import { HomeComponent } from './pages/home/home.component';
+import { ListComponent } from './pages/list/list.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent, ParkingTableComponent],
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    ParkingTableComponent,
+    HomeComponent,
+    ListComponent,
+    SettingsComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,7 +47,8 @@ import { ParkingTableComponent } from './parking-table/parking-table.component';
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    AppRoutingModule
   ],
   providers: [
     {
