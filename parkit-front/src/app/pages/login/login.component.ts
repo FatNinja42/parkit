@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
   hide = true;
+  loginFailed = false;
 
   constructor(private authService: AuthService) {}
 
@@ -25,8 +26,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService
-      .logIn(this.username.value, this.password.value)
-      .subscribe(response => {}, error => {});
+    this.authService.logIn(this.username.value, this.password.value).subscribe(
+      () => {
+        this.loginFailed = false;
+      },
+      () => {
+        this.loginFailed = true;
+      }
+    );
   }
 }
