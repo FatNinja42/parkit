@@ -13,7 +13,11 @@ import {
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule, MatGridListModule, MatCardModule, MatMenuModule, MatFormFieldModule
+  MatSortModule,
+  MatGridListModule,
+  MatCardModule,
+  MatMenuModule,
+  MatFormFieldModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -25,7 +29,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SettingsComponent } from './pages/settings/settings.component';
-import { LoginUiComponent } from './login-ui/login-ui.component';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -36,8 +39,7 @@ import { AuthService } from './services/auth.service';
     HomeComponent,
     ListComponent,
     SettingsComponent,
-    LoginComponent,
-    LoginUiComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
