@@ -11,12 +11,7 @@ export class ListDataSource extends DataSource<UserListElement> {
   }
 
   connect(): Observable<UserListElement[]> {
-    return this.http.get<UserListElement[]>('userList').pipe(
-      map(list => {
-        console.log(list);
-        return list;
-      })
-    );
+    return this.http.get<UserListElement[]>('userList');
   }
 
   disconnect() {}

@@ -35,4 +35,10 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  checkEnter(event) {
+    if (event.keyCode === 13) {
+      this.login();
+    }
+  }
 }
