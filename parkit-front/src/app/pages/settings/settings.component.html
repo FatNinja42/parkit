@@ -44,7 +44,7 @@
                 <mat-slide-toggle>E-mail me!</mat-slide-toggle>
             </mat-list-item>
             <mat-list-item>
-                <mat-slide-toggle>Push Notifications</mat-slide-toggle>
+                <mat-slide-toggle [checked]={{user.email}} ()>Push Notifications</mat-slide-toggle>
             </mat-list-item>
         </mat-list>
     </mat-card-content>
