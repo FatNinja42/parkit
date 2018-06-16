@@ -1,20 +1,17 @@
 package com.iquestgroup.park.it.model;
 
-import org.springframework.data.annotation.Id;
-
-import java.util.Date;
 import java.util.List;
 
 public class User {
-    @Id
     private String id;
 
     private String name;
     private String password;
-    private Date employmentDate;
+    private String phoneNumber;
+    private String employmentDate;
     private boolean wantsParking;
     private Long parkingSpot;
-    private Date passDay;
+    private String passDay;
     private List<String> licensePlates;
 
     public User(String name, String password) {
@@ -50,11 +47,11 @@ public class User {
         this.password = password;
     }
 
-    public Date getEmploymentDate() {
+    public String getEmploymentDate() {
         return employmentDate;
     }
 
-    public void setEmploymentDate(Date employmentDate) {
+    public void setEmploymentDate(String employmentDate) {
         this.employmentDate = employmentDate;
     }
 
@@ -74,11 +71,11 @@ public class User {
         this.parkingSpot = parkingSpot;
     }
 
-    public Date getPassDay() {
+    public String getPassDay() {
         return passDay;
     }
 
-    public void setPassDay(Date passDay) {
+    public void setPassDay(String passDay) {
         this.passDay = passDay;
     }
 
@@ -88,5 +85,13 @@ public class User {
 
     public void setLicensePlates(List<String> licensePlates) {
         this.licensePlates = licensePlates;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private MyAuthenticationEntryPoint authenticationEntryPoint;
@@ -39,11 +39,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configAuthBuilder(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(authSecurityService);
     }
-
-    @Bean
-    public BCryptPasswordEncoder encoder() {
-        return new BCryptPasswordEncoder();
-    }
-
 
 }

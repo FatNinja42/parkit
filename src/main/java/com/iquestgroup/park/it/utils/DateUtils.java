@@ -1,5 +1,6 @@
 package com.iquestgroup.park.it.utils;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,5 +15,11 @@ public class DateUtils {
             e.printStackTrace();
         }
         return date;
+    }
+
+    public static String fromDate(Date date) {
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String formatedDate = df.format(date);
+        return formatedDate;
     }
 }

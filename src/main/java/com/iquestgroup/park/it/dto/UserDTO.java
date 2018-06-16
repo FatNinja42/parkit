@@ -13,6 +13,7 @@ public class UserDTO {
     private String name;
     private String password;
     private Date employmentDate;
+    private String phoneNumber;
     private boolean wantsParking;
     private Long parkingSpot;
     private Date passDay;
@@ -94,5 +95,13 @@ public class UserDTO {
 
     public void setVacantionItems(List<VacantionItem> vacantionItems) {
         this.vacantionItems = vacantionItems;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

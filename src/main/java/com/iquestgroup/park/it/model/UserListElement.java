@@ -8,7 +8,8 @@ public class UserListElement {
 
     private String id;
     private String name;
-    private Long parkingNumber;
+    private Long parkingSpot;
+    private String phoneNumber;
     private List<String> licensePlates;
 
     public UserListElement(){
@@ -22,13 +23,17 @@ public class UserListElement {
         return this;
     }
 
-    public UserListElement withParkingNumber(Long parkingNumber) {
-        this.parkingNumber = parkingNumber;
+    public UserListElement withParkingNumber(Long parkingSpot) {
+        this.parkingSpot = parkingSpot;
         return this;
     }
 
     public UserListElement withLicensePlates(List<String> licensePlates) {
         this.licensePlates = licensePlates;
+        return this;
+    }
+    public UserListElement withPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
         return this;
     }
 
@@ -48,12 +53,12 @@ public class UserListElement {
         this.name = name;
     }
 
-    public Long getParkingNumber() {
-        return parkingNumber;
+    public Long getParkingSpot() {
+        return parkingSpot;
     }
 
-    public void setParkingNumber(Long parkingNumber) {
-        this.parkingNumber = parkingNumber;
+    public void setParkingSpot(Long parkingSpot) {
+        this.parkingSpot = parkingSpot;
     }
 
     public List<String> getLicensePlates() {
@@ -64,12 +69,21 @@ public class UserListElement {
         this.licensePlates = licensePlates;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "UserListElement{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", parkingNumber=" + parkingNumber +
+                ", parkingSpot=" + parkingSpot +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", licensePlates=" + licensePlates +
                 '}';
     }
