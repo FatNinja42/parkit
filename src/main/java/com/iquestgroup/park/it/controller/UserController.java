@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/requestParking", method = RequestMethod.POST)
-    public ResponseEntity<?> requestParking (String userId) {
+    public ResponseEntity<?> requestParking (@RequestBody String userId) {
         User user = userService.getUserById(userId);
         user.setWantsParking(true);
         userService.update(user);
@@ -39,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/giveUpParking", method = RequestMethod.POST)
-    public ResponseEntity<?> giveUpParking (String userId) {
+    public ResponseEntity<?> giveUpParking (@RequestBody String userId) {
         User user = userService.getUserById(userId);
         user.setWantsParking(false);
         userService.update(user);
@@ -47,11 +48,35 @@ public class UserController {
     }
 
     @RequestMapping(value = "/passDay", method = RequestMethod.POST)
-    public ResponseEntity<?> giveUpParking (String id, String passDayDate ) {
-        User user = userService.getUserById(id);
-        user.setPassDay(passDayDate);
+    public ResponseEntity<?> giveUpParking (@RequestBody IdAndDate idAndDate) {
+        User user = userService.getUserById(idAndDate.getId());
+        user.setPassDay(idAndDate.getPassDayDate());
         userService.update(user);
 
         return ResponseEntity.ok(user);
+    }
+
+    class IdAndDate {
+        private String id;
+        private String passDayDate;
+
+        public IdAndDate() {
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getPassDayDate() {
+            return passDayDate;
+        }
+
+        public void setPassDayDate(String passDayDate) {
+            this.passDayDate = passDayDate;
+        }
     }
 }

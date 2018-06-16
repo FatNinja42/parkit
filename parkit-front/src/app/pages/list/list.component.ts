@@ -23,7 +23,11 @@ export class ListComponent implements OnInit {
     'licensePlates'
   ];
 
-  constructor(private authService: AuthService, private http: HttpClient) {}
+  constructor(private authService: AuthService, private http: HttpClient) {
+    this.http
+      .post('requestParking', '5b259169abd9263cb4d9cf94')
+      .subscribe(e => console.log(e));
+  }
 
   ngOnInit() {
     this.dataSource = new ListDataSource(this.http);
