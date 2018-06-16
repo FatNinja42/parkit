@@ -22,6 +22,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AppRoutingModule
   ],
   providers: [
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
