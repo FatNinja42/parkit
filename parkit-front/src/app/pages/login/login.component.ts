@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { SELECT_VALUE_ACCESSOR } from '@angular/forms/src/directives/select_control_value_accessor';
 
 @Component({
   selector: 'parking-login',
@@ -16,7 +15,12 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {}
-  getErrorMessage() {
+
+  getUsernameError() {
+    return this.username.hasError('required') ? 'You must enter a value' : '';
+  }
+
+  getPasswordError() {
     return this.username.hasError('required') ? 'You must enter a value' : '';
   }
 
