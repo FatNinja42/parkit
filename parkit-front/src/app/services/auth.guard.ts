@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService) {}
   canActivate() {
-    console.log('AlwaysAuthGuard');
     return this.authService.isLoggedIn();
   }
 }

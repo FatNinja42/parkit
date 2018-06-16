@@ -10,7 +10,6 @@ export class AppComponent {
   constructor(private authService: AuthService) {}
 
   isLoggedIn(): boolean {
-    console.log(this.authService.isLoggedIn());
     return this.authService.isLoggedIn();
   }
 }
