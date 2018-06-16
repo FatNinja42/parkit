@@ -25,10 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SettingsComponent } from './pages/settings/settings.component';
-<<<<<<< HEAD
 import { LoginUiComponent } from './login-ui/login-ui.component';
-=======
->>>>>>> 0d2740e9a32fc672ca565e37095c88eacbf31b74
 import { AuthService } from './services/auth.service';
 
 @NgModule({
