@@ -4,15 +4,21 @@ import com.iquestgroup.park.it.model.User;
 import com.iquestgroup.park.it.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 @RestController
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private SimpMessagingTemplate template;
 
     @RequestMapping("/user")
     public ResponseEntity<?> getUsers() {
@@ -35,7 +41,8 @@ public class UserController {
         User user = userService.getUserById(userId);
         user.setWantsParking(false);
         userService.update(user);
-
+        this.template.convertAndSend("/chat", new SimpleDateFormat("HH:mm:ss").format(new Date()) +
+        "- Free parking spot!!!");
         return ResponseEntity.ok(user);
     }
 
