@@ -32,6 +32,8 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { StompModule } from '@elderbyte/ngx-stomp';
+import { OptInComponent } from './opt-in/opt-in.component';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { StompModule } from '@elderbyte/ngx-stomp';
     HomeComponent,
     ListComponent,
     SettingsComponent,
-    LoginComponent
+    LoginComponent,
+    OptInComponent
   ],
   imports: [
     BrowserModule,
@@ -68,13 +71,14 @@ import { StompModule } from '@elderbyte/ngx-stomp';
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     StompModule.forRoot({
-      endpointUrl: '/stomp',
+      endpointUrl: 'socket',
       withSockJs: true
     })
   ],
   providers: [
     AuthGuard,
     AuthService,
+    NotificationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

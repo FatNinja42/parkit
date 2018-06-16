@@ -1,3 +1,3 @@
 export class Settings {
-  public apiUrl = 'http://172.16.192.60:8080/parkit/';
+  public apiUrl = 'http://localhost:8080/parkit/';
 }

@@ -24,6 +24,8 @@ public class UserController {
     public ResponseEntity<?> getUsers() {
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(name);
+        this.template.convertAndSend("/chat", new SimpleDateFormat("HH:mm:ss").format(new Date()) +
+                "- Free parking spot!!!");
         return ResponseEntity.ok(user);
     }
 
@@ -41,8 +43,6 @@ public class UserController {
         User user = userService.getUserById(userId);
         user.setWantsParking(false);
         userService.update(user);
-        this.template.convertAndSend("/chat", new SimpleDateFormat("HH:mm:ss").format(new Date()) +
-        "- Free parking spot!!!");
         return ResponseEntity.ok(user);
     }
 
