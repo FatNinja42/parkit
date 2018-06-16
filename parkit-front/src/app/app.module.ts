@@ -17,7 +17,8 @@ import {
   MatGridListModule,
   MatCardModule,
   MatMenuModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -63,7 +64,8 @@ import { AuthGuard } from './services/auth.guard';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSlideToggleModule
   ],
   providers: [
     AuthGuard,

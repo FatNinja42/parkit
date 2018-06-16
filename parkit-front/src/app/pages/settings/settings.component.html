@@ -1,15 +1,51 @@
-<mat-card class="settings-card">
-    <mat-card-header>
-        <mat-card-title>Settings</mat-card-title>
-    </mat-card-header>
+<mat-card class="user-info-card">
     <mat-card-content>
+        <h3 mat-subheader>User Information</h3>
         <mat-list>
-                <mat-list-item>{{user.name}}</mat-list-item>
-                <mat-list-item>{{user.parkingSpot}}</mat-list-item>
-                <mat-list-item *ngFor="let licensePlate of user.licensePlates">{{licensePlate}}</mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Name</h4>
+                <span>{{user.name}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Employment Date</h4>
+                <span>{{user.employmentDate}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Phone Number</h4>
+                <span>{{user.phoneNumber}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Wants Paking</h4>
+                <span>{{user.wantsParking}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Alocated parking spot</h4>
+                <span>{{user.parkingSpot}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Next day skipped</h4>
+                <span>{{user.passDay}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <h4 mat-subheader>Licence plate</h4>
+                <span *ngFor="let licensePlate of user.licensePlates">
+                    <span>{{licensePlate}};</span>
+                </span>
+            </mat-list-item>
         </mat-list>
     </mat-card-content>
-    <mat-card-actions>
+</mat-card>
 
-    </mat-card-actions>
+<mat-card class="notifications-card">
+    <mat-card-content>
+        <h3 mat-subheader>Notifications</h3>
+        <mat-list>
+            <mat-list-item>
+                <mat-slide-toggle>E-mail me!</mat-slide-toggle>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-slide-toggle>Push Notifications</mat-slide-toggle>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
 </mat-card>
