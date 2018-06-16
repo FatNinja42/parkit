@@ -3,6 +3,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { ListDataSource } from './list.datasource';
 import { UserListElement } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'parking-list',
@@ -22,10 +23,10 @@ export class ListComponent implements OnInit {
     'licensePlates'
   ];
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private http: HttpClient) {}
 
   ngOnInit() {
-    this.dataSource = new ListDataSource(this.paginator, this.sort);
+    this.dataSource = new ListDataSource(this.http);
   }
 
   hasNoSpot(user: UserListElement) {
