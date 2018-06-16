@@ -29,6 +29,7 @@ import { ListComponent } from './pages/list/list.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AuthService } from './services/auth.service';
     MatProgressSpinnerModule
   ],
   providers: [
+    AuthGuard,
     AuthService,
     {
       provide: HTTP_INTERCEPTORS,

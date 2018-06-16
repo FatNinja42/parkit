@@ -23,13 +23,13 @@
 
     <ng-container matColumnDef="licensePlates">
       <mat-header-cell *matHeaderCellDef mat-sort-header>License plates</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.parkingSpot ? row.licensePlates : '-'}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.licensePlates}}</mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row [ngClass]="{'grayed':hasNoSpot(row),'highlighted':isCurrentUser(row)}" *matRowDef="let row; columns: displayedColumns"></mat-row>
   </mat-table>
 
-  <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]">
-  </mat-paginator>
+  <!-- <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="50" [pageSizeOptions]="[25, 50, 100, 250]"> -->
+  <!-- </mat-paginator> -->
 </div>
