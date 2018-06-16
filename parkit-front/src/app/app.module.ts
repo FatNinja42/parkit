@@ -10,12 +10,13 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule
+  MatListModule, MatTableModule, MatPaginatorModule, MatSortModule
 } from '@angular/material';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ParkingTableComponent } from './parking-table/parking-table.component';
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent],
+  declarations: [AppComponent, MainNavComponent, ParkingTableComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -27,7 +28,10 @@ import { AuthInterceptor } from './services/auth.interceptor';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [
     {
