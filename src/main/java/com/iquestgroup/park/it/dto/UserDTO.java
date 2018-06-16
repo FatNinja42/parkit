@@ -1,11 +1,12 @@
-package com.iquestgroup.park.it.model;
+package com.iquestgroup.park.it.dto;
 
+import com.iquestgroup.park.it.model.VacantionItem;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class UserDTO {
     @Id
     private String id;
 
@@ -16,22 +17,11 @@ public class User {
     private Long parkingSpot;
     private Date passDay;
     private List<String> licensePlates;
+    private List<VacantionItem> vacantionItems;
 
-    public User(String name, String password) {
+    public UserDTO(String name, String password) {
         this.name = name;
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPasssword() {
-        return password;
     }
 
     public String getId() {
@@ -40,6 +30,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -88,5 +86,13 @@ public class User {
 
     public void setLicensePlates(List<String> licensePlates) {
         this.licensePlates = licensePlates;
+    }
+
+    public List<VacantionItem> getVacantionItems() {
+        return vacantionItems;
+    }
+
+    public void setVacantionItems(List<VacantionItem> vacantionItems) {
+        this.vacantionItems = vacantionItems;
     }
 }

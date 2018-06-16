@@ -2,6 +2,7 @@ package com.iquestgroup.park.it.auth;
 
 import com.iquestgroup.park.it.model.User;
 import com.iquestgroup.park.it.repository.UserRepository;
+import com.iquestgroup.park.it.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,11 +12,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthSecurityService implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       User user = userRepository.findByName(username);
+       User user = userService.getUser(username);
 
         if(user == null){
             throw new UsernameNotFoundException(username);

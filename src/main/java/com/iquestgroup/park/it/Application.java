@@ -26,5 +26,6 @@ public class Application implements CommandLineRunner{
     public void run(String... args) throws Exception {
         userService.deleteAll();
         userService.addUser(new User("admin",  passwordEncoder.encode("admin")));
+        userService.addRandomUsers();
     }
 }
