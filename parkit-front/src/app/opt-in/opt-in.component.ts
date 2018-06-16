@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'opt-in',
@@ -8,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class OptInComponent implements OnInit {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private http: HttpClient) {}
 
   user = this.authService.getUser();
   wantsPaking = this.user.wantsParking;
@@ -16,4 +17,13 @@ export class OptInComponent implements OnInit {
   ngOnInit() {
   }
 
+  public onChange(event) {
+    console.log(event);
+    console.log(this.user.id);
+    if (event.checked === true) {
+      this.http.post('giveUpParking', this.user.id).subscribe(response => console.log(response));
+    } else {
+      this.http.post('requestParking', this.user.id).subscribe(response => console.log(response));
+    }
+  }
 }
