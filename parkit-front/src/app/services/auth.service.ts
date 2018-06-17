@@ -57,7 +57,6 @@ export class AuthService {
   public updateUser() {
     this.http.get<User>('user').pipe(
       map(response => {
-        console.log('pizda');
         this.user = new User(response);
         window.sessionStorage.setItem('user', JSON.stringify(this.user));
       })).subscribe();
