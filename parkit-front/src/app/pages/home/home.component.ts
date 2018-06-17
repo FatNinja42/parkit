@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { MatDialog } from '@angular/material';
 import { ConfirmPassComponent } from '../../confirm-pass/confirm-pass.component';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'parking-home',
@@ -12,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent {
   public parkingSpot: number;
   public wantsParking: boolean;
+  public canPass: boolean;
 
   constructor(
     private authService: AuthService,
@@ -20,6 +22,10 @@ export class HomeComponent {
   ) {
     this.wantsParking = authService.getUser().wantsParking;
     this.parkingSpot = authService.getUser().parkingSpot;
+    this.canPass = <boolean>(
+      (!authService.getUser().passDay &&
+        authService.getUser().parkingSpot !== 0)
+    );
   }
 
   pass() {
@@ -32,9 +38,17 @@ export class HomeComponent {
       this.http
         .post('passDay', {
           id: this.authService.getUser().id,
-          passDayDate: result
+          passDayDate: this.format(result)
         })
-        .subscribe(r => console.log(r));
+        .subscribe(() => {
+          this.canPass = true;
+          this.authService.updateUser();
+        });
     });
+  }
+
+  format(date: Date) {
+    const pipe = new DatePipe('en-US');
+    return pipe.transform(date, 'd/M/yy');
   }
 }

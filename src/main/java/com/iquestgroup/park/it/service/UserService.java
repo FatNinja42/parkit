@@ -104,10 +104,10 @@ public class UserService {
             UserDTO userDTO = new UserDTO(usernameAndPasswords.get(i), encoder.encode(usernameAndPasswords.get(i)));
             userDTO.setEmploymentDate(employments.get(i));
             userDTO.setVacantionItems(Collections.singletonList(vacantions.get(i)));
-            userDTO.setParkingSpot(i + 1L);
+            if (Math.random() > 0.5)userDTO.setParkingSpot(i + 1L);
             userDTO.setPhoneNumber("0733 000 00" + i%10);
-            userDTO.setPassDay(Calendar.getInstance().getTime());
-            userDTO.setWantsParking(i % 2 == 0);
+            if(Math.random() > 0.5)userDTO.setPassDay(Calendar.getInstance().getTime());
+            if(Math.random() > 0.5)userDTO.setWantsParking(i % 2 == 0);
             userDTO.setLicensePlates(Arrays.asList("CJ 0" +i +" ASD", "B "+i+"0 QWE"));
             repository.insert(userDTO);
         }

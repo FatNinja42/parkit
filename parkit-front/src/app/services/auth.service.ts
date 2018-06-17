@@ -13,30 +13,25 @@ export class AuthService {
   private token: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    const user = JSON.parse(window.sessionStorage.getItem('user'));
-    const token = window.sessionStorage.getItem('token');
+    const user = JSON.parse(window.localStorage.getItem('user'));
+    const token = window.localStorage.getItem('token');
     if (user && token) {
-      this.token = token;
       this.user = user;
-      this.makeLoginCall();
+      this.token = token;
     }
-  }
-
-  private makeLoginCall() {
-    return this.http.get<User>('user').pipe(
-      map(response => {
-        this.user = new User(response);
-        window.sessionStorage.setItem('user', JSON.stringify(this.user));
-        window.sessionStorage.setItem('token', this.token);
-        this.router.navigate(['']);
-        return true;
-      })
-    );
   }
 
   public logIn(username: string, password: string): Observable<boolean> {
     this.token = btoa(username + ':' + password);
-    return this.makeLoginCall();
+    return this.http.get<User>('user').pipe(
+      map(response => {
+        this.user = new User(response);
+        window.localStorage.setItem('user', JSON.stringify(this.user));
+        window.localStorage.setItem('token', this.token);
+        this.router.navigate(['']);
+        return true;
+      })
+    );
   }
   public logOut() {
     this.token = null;
@@ -55,10 +50,14 @@ export class AuthService {
   }
 
   public updateUser() {
-    this.http.get<User>('user').pipe(
-      map(response => {
-        this.user = new User(response);
-        window.sessionStorage.setItem('user', JSON.stringify(this.user));
-      })).subscribe();
+    this.http
+      .get<User>('user')
+      .pipe(
+        map(response => {
+          this.user = new User(response);
+          window.sessionStorage.setItem('user', JSON.stringify(this.user));
+        })
+      )
+      .subscribe();
   }
 }

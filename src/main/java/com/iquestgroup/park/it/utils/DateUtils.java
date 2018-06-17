@@ -19,7 +19,10 @@ public class DateUtils {
 
     public static String fromDate(Date date) {
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String formatedDate = df.format(date);
+        String formatedDate = "";
+        if(date != null) {
+            formatedDate = df.format(date);
+        }
         return formatedDate;
     }
 }

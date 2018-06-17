@@ -34,6 +34,7 @@ public class UserController {
     public ResponseEntity<?> requestParking (@RequestBody String userId) {
         User user = userService.getUserById(userId);
         user.setWantsParking(true);
+        user.setParkingSpot(0L);
         userService.update(user);
 
         return ResponseEntity.ok(user);
@@ -43,6 +44,7 @@ public class UserController {
     public ResponseEntity<?> giveUpParking (@RequestBody String userId) {
         User user = userService.getUserById(userId);
         user.setWantsParking(false);
+        user.setParkingSpot(0L);
         userService.update(user);
         return ResponseEntity.ok(user);
     }
@@ -50,6 +52,7 @@ public class UserController {
     @RequestMapping(value = "/passDay", method = RequestMethod.POST)
     public ResponseEntity<?> giveUpParking (@RequestBody IdAndDate idAndDate) {
         User user = userService.getUserById(idAndDate.getId());
+        user.setParkingSpot(0L);
         user.setPassDay(idAndDate.getPassDayDate());
         userService.update(user);
 

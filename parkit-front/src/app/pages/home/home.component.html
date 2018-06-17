@@ -1,5 +1,7 @@
-<span *ngIf="!wantsParking" ><opt-in></opt-in></span>
-<mat-card class="big-status">
+<span *ngIf="!wantsParking">
+  <opt-in></opt-in>
+</span>
+<mat-card class="big-status" *ngIf="canPass">
   <h2>Your parking spot</h2>
   <h1>{{parkingSpot}}</h1>
   <p class="separator"></p>
