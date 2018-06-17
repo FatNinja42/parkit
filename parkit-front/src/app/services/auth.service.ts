@@ -13,8 +13,8 @@ export class AuthService {
   private token: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    const user = JSON.parse(window.localStorage.getItem('user'));
-    const token = window.localStorage.getItem('token');
+    const user = JSON.parse(window.sessionStorage.getItem('user'));
+    const token = window.sessionStorage.getItem('token');
     if (user && token) {
       this.user = user;
       this.token = token;
@@ -26,8 +26,8 @@ export class AuthService {
     return this.http.get<User>('user').pipe(
       map(response => {
         this.user = new User(response);
-        window.localStorage.setItem('user', JSON.stringify(this.user));
-        window.localStorage.setItem('token', this.token);
+        window.sessionStorage.setItem('user', JSON.stringify(this.user));
+        window.sessionStorage.setItem('token', this.token);
         this.router.navigate(['']);
         return true;
       })
@@ -47,5 +47,14 @@ export class AuthService {
   }
   public getToken(): string {
     return this.token;
+  }
+
+  public updateUser() {
+    this.http.get<User>('user').pipe(
+      map(response => {
+        console.log('pizda');
+        this.user = new User(response);
+        window.sessionStorage.setItem('user', JSON.stringify(this.user));
+      })).subscribe();
   }
 }

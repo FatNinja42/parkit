@@ -19,11 +19,15 @@ export class OptInComponent implements OnInit {
 
   public onChange(event) {
     console.log(event);
+    console.log(this.wantsPaking);
     console.log(this.user.id);
-    if (event.checked === true) {
-      this.http.post('giveUpParking', this.user.id).subscribe(response => console.log(response));
+    if (event.checked !== true) {
+      this.http.post('giveUpParking', this.user.id).subscribe(response =>
+        this.authService.updateUser()
+      );
     } else {
-      this.http.post('requestParking', this.user.id).subscribe(response => console.log(response));
+      this.http.post('requestParking', this.user.id).subscribe(response =>
+      this.authService.updateUser());
     }
   }
 }
