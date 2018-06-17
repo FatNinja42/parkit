@@ -11,12 +11,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent {
   public parkingSpot: number;
+  public wantsParking: boolean;
 
   constructor(
     private authService: AuthService,
     private dialog: MatDialog,
     private http: HttpClient
   ) {
+    this.wantsParking = authService.getUser().wantsParking;
     this.parkingSpot = authService.getUser().parkingSpot;
   }
 

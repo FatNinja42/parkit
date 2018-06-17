@@ -1,2 +1,3 @@
 target/
 .idea/
+parkit-front/src/app/config/settings.config.ts

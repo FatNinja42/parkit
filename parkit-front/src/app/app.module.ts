@@ -36,6 +36,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { OptInComponent } from './opt-in/opt-in.component';
 import { ConfirmPassComponent } from './confirm-pass/confirm-pass.component';
+import { ConfirmOptOutComponent } from './confirm-opt-out/confirm-opt-out.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ConfirmPassComponent } from './confirm-pass/confirm-pass.component';
     SettingsComponent,
     LoginComponent,
     OptInComponent,
-    ConfirmPassComponent
+    ConfirmPassComponent,
+    ConfirmOptOutComponent
   ],
   imports: [
     BrowserModule,
