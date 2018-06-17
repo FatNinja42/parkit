@@ -20,12 +20,10 @@ export class HomeComponent {
     private dialog: MatDialog,
     private http: HttpClient
   ) {
-    this.wantsParking = authService.getUser().wantsParking;
-    this.parkingSpot = authService.getUser().parkingSpot;
-    this.canPass = <boolean>(
-      (!authService.getUser().passDay &&
-        authService.getUser().parkingSpot !== 0)
-    );
+    const user = authService.getUser();
+    this.wantsParking = user.wantsParking;
+    this.parkingSpot = user.parkingSpot;
+    this.canPass = <boolean>(!user.passDay && user.parkingSpot !== 0);
   }
 
   pass() {
@@ -41,7 +39,7 @@ export class HomeComponent {
           passDayDate: this.format(result)
         })
         .subscribe(() => {
-          this.canPass = true;
+          this.canPass = false;
           this.authService.updateUser();
         });
     });

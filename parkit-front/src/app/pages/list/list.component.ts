@@ -30,7 +30,7 @@ export class ListComponent implements OnInit {
   }
 
   hasNoSpot(user: UserListElement) {
-    return user.parkingSpot === 0;
+    return !user.parkingSpot;
   }
 
   isCurrentUser(row: UserListElement) {

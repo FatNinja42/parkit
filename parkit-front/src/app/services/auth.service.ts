@@ -18,6 +18,13 @@ export class AuthService {
     if (user && token) {
       this.user = user;
       this.token = token;
+      this.http.get<User>('user').subscribe(response => {
+        if (this.user && this.token) {
+          this.user = new User(response);
+          window.localStorage.setItem('user', JSON.stringify(this.user));
+          window.localStorage.setItem('token', this.token);
+        }
+      });
     }
   }
 
