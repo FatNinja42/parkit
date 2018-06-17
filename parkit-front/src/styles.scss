@@ -1,7 +1,6 @@
 @import './scss/colors';
 @import './scss/material';
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 html,
 body {
@@ -14,7 +13,7 @@ body {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
-  font-family: 'Raleway', cursive;
+  font-family: 'Poppins', serif;
   color: $color-initial;
-  background-color: $color-primary;
+  background-image: url('/assets/img/blackorchid.png');
 }

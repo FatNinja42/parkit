@@ -17,9 +17,9 @@ mat-form-field {
 }
 
 mat-card.login-card {
-  padding-top: 20vh;
+  margin-top: 20vh;
   margin-left: calc(50vw - 200px);
-  @include boxShadow(10px, 5px, $color-primary);
+  @include boxShadow(0px, 0px, $color-primary);
   text-align: center;
   max-width: 400px;
 }
