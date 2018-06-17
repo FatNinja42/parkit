@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>When would you like to give up your parking spot?</h1>
+<mat-dialog-actions>
+  <div class="radios">
+    <mat-radio-group (change)="changeSelection($event)">
+      <mat-radio-button value="1" checked>Tomorrow</mat-radio-button>
+      <br/>
+      <mat-radio-button value="2">Today</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="send">
+    <button mat-raised-button [mat-dialog-close]="true" color="primary" (click)="pass()">Pass it on</button>
+  </div>
+</mat-dialog-actions>

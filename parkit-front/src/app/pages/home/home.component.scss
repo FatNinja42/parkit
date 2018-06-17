@@ -1,0 +1,28 @@
+.big-status {
+  margin: 2% 20%;
+  h1 {
+    font-size: 6vw;
+  }
+  h2 {
+    font-size: 4vw;
+  }
+  text-align: center;
+  .separator {
+    height: 1vh;
+    width: 100%;
+  }
+  .pass {
+    width: 90%;
+    height: 12vw;
+    font-size: 6vw;
+  }
+  @mixin md-icon-size($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+
+  .mat-icon {
+    @include md-icon-size(6vw);
+  }
+}

@@ -18,7 +18,10 @@ import {
   MatCardModule,
   MatMenuModule,
   MatFormFieldModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatDialogModule,
+  MatCheckboxModule,
+  MatRadioModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -32,6 +35,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
 import { OptInComponent } from './opt-in/opt-in.component';
+import { ConfirmPassComponent } from './confirm-pass/confirm-pass.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,8 @@ import { OptInComponent } from './opt-in/opt-in.component';
     ListComponent,
     SettingsComponent,
     LoginComponent,
-    OptInComponent
+    OptInComponent,
+    ConfirmPassComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,9 @@ import { OptInComponent } from './opt-in/opt-in.component';
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [
     AuthGuard,
@@ -78,6 +85,7 @@ import { OptInComponent } from './opt-in/opt-in.component';
       multi: true
     }
   ],
+  entryComponents: [ConfirmPassComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

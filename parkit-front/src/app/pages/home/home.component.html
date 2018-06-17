@@ -1,2 +1,8 @@
-<mat-card></mat-card>
 <opt-in></opt-in>
+<mat-card class="big-status">
+  <h2>Your parking spot</h2>
+  <h1>{{parkingSpot}}</h1>
+  <p class="separator"></p>
+  <button class="button-logout pass" mat-raised-button (click)="pass()" color="primary">
+    <mat-icon class="nav-icon">reply</mat-icon> Pass</button>
+</mat-card>

@@ -56,7 +56,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    class IdAndDate {
+    static class IdAndDate {
         private String id;
         private String passDayDate;
 

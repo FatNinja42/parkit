@@ -16,13 +16,13 @@ export class AuthService {
     const user = JSON.parse(window.sessionStorage.getItem('user'));
     const token = window.sessionStorage.getItem('token');
     if (user && token) {
-      this.user = user;
       this.token = token;
+      this.user = user;
+      this.makeLoginCall();
     }
   }
 
-  public logIn(username: string, password: string): Observable<boolean> {
-    this.token = btoa(username + ':' + password);
+  private makeLoginCall() {
     return this.http.get<User>('user').pipe(
       map(response => {
         this.user = new User(response);
@@ -32,6 +32,11 @@ export class AuthService {
         return true;
       })
     );
+  }
+
+  public logIn(username: string, password: string): Observable<boolean> {
+    this.token = btoa(username + ':' + password);
+    return this.makeLoginCall();
   }
   public logOut() {
     this.token = null;
