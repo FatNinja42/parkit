@@ -1,3 +1,5 @@
-<mat-card>
+<mat-card class="opt-in-card">
+    <h3 mat-subheader *ngIf="!wantsPaking; else elseBlock">We see that you're not signed-up for a parking place, we can change that!</h3>
+    <ng-template #elseBlock><h3 mat-subheader>Thank you for being part of our team!</h3></ng-template>
     <mat-slide-toggle [checked]=wantsPaking (change)="onChange($event)">I want in on the parking game!</mat-slide-toggle>
 </mat-card>
