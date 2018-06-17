@@ -17,9 +17,171 @@ mat-form-field {
 }
 
 mat-card.login-card {
-  margin-top: 20vh;
+  margin-top: 30vh;
   margin-left: calc(50vw - 200px);
   @include boxShadow(0px, 0px, $color-primary);
   text-align: center;
   max-width: 400px;
+}
+
+.st1 {
+  display: inline;
+  fill: #3abc98;
+}
+.st2 {
+  opacity: 0.32;
+  fill: #727171;
+}
+.st3 {
+  fill: #898989;
+}
+.st4 {
+  fill: #ffffff;
+}
+.st5 {
+  fill: #c9caca;
+}
+.st6 {
+  fill: #fdbe25;
+}
+.st7 {
+  fill: #f9f8de;
+}
+.st8 {
+  fill: #f57d41;
+}
+.st9 {
+  fill: #f57d41;
+  stroke: #ea5514;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+.st10 {
+  fill: none;
+  stroke: #dedcc9;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+.st11 {
+  fill: #bde6e3;
+}
+.st12 {
+  fill: #ea5514;
+}
+.st13 {
+  fill: none;
+  stroke: #595757;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+}
+.st14 {
+  fill: none;
+  stroke: #ea5514;
+  stroke-miterlimit: 10;
+}
+.st15 {
+  fill: #dedcc9;
+  stroke: #dedcc9;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+.st16 {
+  fill: #c96031;
+  stroke: #ea5514;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+}
+
+body {
+  background-color: #3abc98;
+}
+
+#wrapper {
+  position: absolute;
+  width: 310px;
+  height: 150px;
+  left: 52%;
+  top: 20vh;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#car-body {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  animation: carbody 1s linear infinite;
+  -webkit-animation: carbody 1s linear infinite;
+}
+
+#wheel {
+  .wheel {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+  }
+  .wheel-back {
+    z-index: -1;
+  }
+}
+
+#smoke {
+  width: 7px;
+  position: absolute;
+  right: 30px;
+  top: 4vh;
+  animation: smoke 1.2s linear infinite;
+  -webkit-animation: smoke 1s linear infinite;
+}
+
+#shadow {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  z-index: -2;
+}
+/***** Animation *****/
+
+@keyframes carbody {
+  0% {
+    bottom: 30px;
+  }
+  60% {
+    bottom: 35px;
+  }
+  80% {
+    bottom: 37px;
+  }
+}
+@-webkit-keyframes carbody {
+  0% {
+    bottom: 30px;
+  }
+  60% {
+    bottom: 35px;
+  }
+  80% {
+    bottom: 37px;
+  }
+}
+
+@keyframes smoke {
+  from {
+    right: 30px;
+  }
+  to {
+    right: -80px;
+    transform: scale(5);
+    opacity: 0.2;
+  }
+}
+@-webkit-keyframes smoke {
+  from {
+    right: 30px;
+  }
+  to {
+    right: -80px;
+    transform: scale(5);
+    opacity: 0.2;
+  }
 }
